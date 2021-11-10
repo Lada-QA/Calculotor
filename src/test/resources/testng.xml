@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="3" name="Test suite" parallel="classes">
+    <test name="Tests">
+          <groups>
+                    <run>
+                        <include name="Regression" />
+                    </run>
+                </groups>
+        <classes>
+            <class name="tests.CalculatorDivisionTest"/>
+            <class name="tests.CalculatorDifferenceTest"/>
+            <class name="tests.CalculatorMultiplicationTest"/>
+            <class name="tests.CalculatorSumTest"/>
+<!--            <parameter name="password" value="password"></parameter>-->
+<!--            <parameter name="email" value="test@mailinator.com"></parameter>-->
+        </classes>
+    </test> <!-- Test -->
+<!--    <test name="test 2">-->
+<!--        <classes>-->
+<!--        </classes>-->
+<!--    </test> &lt;!&ndash; Test &ndash;&gt;-->
+</suite>
