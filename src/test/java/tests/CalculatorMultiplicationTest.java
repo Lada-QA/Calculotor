@@ -2,23 +2,26 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.CalculatorPage;
 
 public class CalculatorMultiplicationTest extends BaseTest {
+    CalculatorPage multiply = new CalculatorPage();
+
     @Test(dataProvider = "Multiply correct number values", dataProviderClass = DataProviderTest.class,
             groups = {"Regression"})
-    public void CalculatorMultiplyWithCorrectNumberTest(double result, double multiplyDigit) {
-        Assert.assertEquals(result,multiplyDigit);
+    public void calculatorMultiplyWithCorrectNumberTest(double result, double a, double b) {
+        Assert.assertEquals(multiply.multiply(a, b), result);
     }
 
     @Test(dataProvider = "Multiply double correct number values", dataProviderClass = DataProviderTest.class,
             groups = {"Regression"})
-    public void CalculatorMultiplicationDoubleTest(double result, double multiplyDigit){
-        Assert.assertEquals(result, multiplyDigit);
+    public void calculatorMultiplicationDoubleTest(double result, double a, double b) {
+        Assert.assertEquals(multiply.multiply(a, b), result);
     }
 
-    @Test(dataProvider = "Multiply double in correct number values", dataProviderClass = DataProviderTest.class,
+    @Test(dataProvider = "Multiply double incorrect number values", dataProviderClass = DataProviderTest.class,
             retryAnalyzer = Retry.class, groups = {"Smoke"}, description = "These tests should always failed")
-    public void CalculatorMultiplicationInCorrectDoubleTest(double result, double multiplyDigit){
-        Assert.assertEquals(result, multiplyDigit);
+    public void calculatorMultiplicationIncorrectDoubleTest(double result, double a, double b) {
+        Assert.assertEquals(multiply.multiply(a, b), result);
     }
 }
